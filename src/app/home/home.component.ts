@@ -1,6 +1,7 @@
 import { FoodService } from '../services/food/food.service';
 import { Component, OnInit } from '@angular/core';
-import { Comida } from '../shared/models/food';
+import { Comida } from '../shared/models/Comida';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -10,9 +11,24 @@ import { Comida } from '../shared/models/food';
 export class HomeComponent implements OnInit {
   comidas: Comida[] = [];
 
-  constructor(private foodService: FoodService) {}
+  constructor(
+    private foodService: FoodService,
+    private route: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.comidas = this.foodService.getAll();
+    this.route.params.subscribe((params) => {
+      if (params.buscador) {
+        this.comidas = this.foodService
+          .getAll()
+          .filter((comida) =>
+            comida.nome.toLowerCase().includes(params.buscador.toLowerCase())
+          );
+      } else if (params.tag) {
+        this.comidas = this.foodService.buscarComidaPelaTag(params.tag);
+      } else {
+        this.comidas = this.foodService.getAll();
+      }
+    });
   }
 }

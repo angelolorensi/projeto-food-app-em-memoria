@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { HomeComponent } from './home/home.component';
+import { BuscaComponent } from './busca/busca.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     CabecalhoComponent,
-    HomeComponent
+    HomeComponent,
+    BuscaComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

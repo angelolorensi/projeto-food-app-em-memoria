@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Comida } from 'src/app/shared/models/food';
+import { Comida } from 'src/app/shared/models/Comida';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FoodService {
 
-  constructor() { }
+  constructor() {}
 
   getAll(): Comida[] {
     return [
@@ -88,5 +88,9 @@ export class FoodService {
         tags: ['FastFood', 'Xis'],
       },
     ];
+  }
+
+  buscarComidaPelaTag(tag: string): Comida[] {
+    return tag == 'All'? this.getAll() : this.getAll().filter(comida => comida.tags?.includes(tag))
   }
 }
