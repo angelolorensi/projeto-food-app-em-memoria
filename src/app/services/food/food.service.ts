@@ -91,6 +91,10 @@ export class FoodService {
     ];
   }
 
+  buscarComidaPorId(id:number): Comida{
+    return this.buscarTodos().find(food => food.id == id)!;
+  }
+
   buscarComidaPeloBuscador(buscador:string): Comida[] {
     return this.buscarTodos().filter((comida) => comida.nome.toLowerCase().includes(buscador.toLowerCase()));
   }

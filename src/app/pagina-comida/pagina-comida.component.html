@@ -1,0 +1,36 @@
+<div class="container">
+  <img [src]="comida.imageUrl" [alt]="comida.nome">
+
+  <div class="detalhes">
+    <div class="cabecalho">
+      <span class="nome">
+        {{comida.nome}}
+      </span>
+      <span class="favorito">
+        ❤
+      </span>
+    </div>
+    <div class="origemETag">
+      <div class="origem">
+        <span>
+        {{comida.origem}}
+        </span>
+      </div>
+      <div class="tag">
+        <app-tags [tagPaginaComida]="comida.tags"></app-tags>
+      </div>
+    </div>
+    <div class="tempoDePreparo">
+      <span>
+        Tempo de preparo : <strong>{{comida.tempoDePreparo}} mins</strong>
+      </span>
+    </div>
+    <div class="preco">
+      <span>
+        {{comida.preco| currency:'R$'}}
+      </span>
+    </div>
+
+    <button>Adicionar ao Carrinho</button>
+  </div>
+</div>

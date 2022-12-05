@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { BuscaComponent } from './busca/busca.component';
 import { FormsModule } from '@angular/forms';
 import { TagsComponent } from './tags/tags.component';
+import { PaginaComidaComponent } from './pagina-comida/pagina-comida.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TagsComponent } from './tags/tags.component';
     CabecalhoComponent,
     HomeComponent,
     BuscaComponent,
-    TagsComponent
+    TagsComponent,
+    PaginaComidaComponent
   ],
   imports: [
     BrowserModule,
