@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Comida } from 'src/app/shared/models/Comida';
+import { Tag } from 'src/app/shared/models/Tag';
 
 @Injectable({
   providedIn: 'root',
@@ -8,7 +9,7 @@ export class FoodService {
 
   constructor() {}
 
-  getAll(): Comida[] {
+  buscarTodos(): Comida[] {
     return [
       {
         id: 1,
@@ -19,7 +20,7 @@ export class FoodService {
         origem: 'Belgica',
         estrelas: 4.5,
         imageUrl: '/assets/images/comida1.jpg',
-        tags: ['FastFood', 'Batata Frita'],
+        tags: ['FastFood', 'Batata Frita', 'Frito'],
       },
       {
         id: 2,
@@ -90,7 +91,24 @@ export class FoodService {
     ];
   }
 
+  buscarComidaPeloBuscador(buscador:string): Comida[] {
+    return this.buscarTodos().filter((comida) => comida.nome.toLowerCase().includes(buscador.toLowerCase()));
+  }
+
+  buscarTodasTags():Tag[]{
+    return [
+      { nome: 'All', contagem: '7' },
+      { nome: 'FastFood', contagem: '4' },
+      { nome: 'Frito', contagem: '2' },
+      { nome: 'Xis', contagem: '1' },
+      { nome: 'Pizza', contagem: '1' },
+      { nome: 'Hamburguer', contagem: '1' },
+      { nome: 'Pastel', contagem: '1' },
+      { nome: 'Saudavel', contagem: '1' },
+    ];
+  }
+
   buscarComidaPelaTag(tag: string): Comida[] {
-    return tag == 'All'? this.getAll() : this.getAll().filter(comida => comida.tags?.includes(tag))
+    return tag == 'All' ? this.buscarTodos() : this.buscarTodos().filter((comida) => comida.tags?.includes(tag));
   }
 }

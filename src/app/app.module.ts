@@ -7,13 +7,15 @@ import { CabecalhoComponent } from './cabecalho/cabecalho.component';
 import { HomeComponent } from './home/home.component';
 import { BuscaComponent } from './busca/busca.component';
 import { FormsModule } from '@angular/forms';
+import { TagsComponent } from './tags/tags.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CabecalhoComponent,
     HomeComponent,
-    BuscaComponent
+    BuscaComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,

@@ -19,15 +19,11 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.route.params.subscribe((params) => {
       if (params.buscador) {
-        this.comidas = this.foodService
-          .getAll()
-          .filter((comida) =>
-            comida.nome.toLowerCase().includes(params.buscador.toLowerCase())
-          );
+        this.comidas = this.foodService.buscarComidaPeloBuscador(params.buscador);
       } else if (params.tag) {
         this.comidas = this.foodService.buscarComidaPelaTag(params.tag);
       } else {
-        this.comidas = this.foodService.getAll();
+        this.comidas = this.foodService.buscarTodos();
       }
     });
   }
