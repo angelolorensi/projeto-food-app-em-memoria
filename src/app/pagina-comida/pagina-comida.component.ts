@@ -1,5 +1,6 @@
+import { CarrinhoService } from './../services/carrinho/carrinho.service';
 import { FoodService } from './../services/food/food.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Comida } from './../shared/models/Comida';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 export class PaginaComidaComponent implements OnInit {
 
   comida!: Comida;
-  constructor(private activatedRoute:ActivatedRoute, private foodService:FoodService) {
+  constructor(private activatedRoute:ActivatedRoute, private foodService:FoodService, private carrinhoService:CarrinhoService, private router:Router) {
     activatedRoute.params.subscribe((params) => {
       if(params.id){
         this.comida = foodService.buscarComidaPorId(params.id);
@@ -20,6 +21,11 @@ export class PaginaComidaComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  adicionarAoCarrinho() {
+    this.carrinhoService.adicionarAoCarrinho(this.comida);
+    this.router.navigateByUrl('/carrinho');
   }
 
 }
