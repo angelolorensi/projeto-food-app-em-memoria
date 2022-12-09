@@ -1,4 +1,5 @@
-<div class="container">
+<app-not-found [visivel]="!carrinho || carrinho.itens.length <= 0" mensagemNotFound="Pagina do carrinho está vazia!" resetLink="Volte para a Home"></app-not-found>
+<div *ngIf="carrinho && carrinho.itens.length > 0" class="container">
   <ul>
     <li *ngFor="let itemCarrinho of carrinho.itens">
       <div>

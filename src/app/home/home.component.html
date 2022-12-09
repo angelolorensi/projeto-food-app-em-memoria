@@ -1,5 +1,7 @@
+
 <app-busca></app-busca>
 <app-tags></app-tags>
+<app-not-found [visivel]="!comidas || comidas.length <= 0" resetLink="Voltar a Home"></app-not-found>
 <ul>
   <li *ngFor="let comida of comidas">
     <a routerLink="/comida/{{comida.id}}">

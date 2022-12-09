@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { TagsComponent } from './tags/tags.component';
 import { PaginaComidaComponent } from './pagina-comida/pagina-comida.component';
 import { PaginaCarrinhoComponent } from './pagina-carrinho/pagina-carrinho.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { PaginaCarrinhoComponent } from './pagina-carrinho/pagina-carrinho.compo
     BuscaComponent,
     TagsComponent,
     PaginaComidaComponent,
-    PaginaCarrinhoComponent
+    PaginaCarrinhoComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
